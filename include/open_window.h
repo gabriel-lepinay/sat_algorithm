@@ -8,7 +8,6 @@
 #ifndef WIN_H_
     #define WIN_H_
     #include "struct.h"
-    #include <SFML/Graphics.h>
     #include <SFML/Window.h>
 
 void init_hitbox1(hitbox_sq_t *hitbox);

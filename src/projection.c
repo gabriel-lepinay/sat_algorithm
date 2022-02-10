@@ -41,8 +41,13 @@ double find_smallest(double *list)
     return (smallest);
 }
 
-int is_a_gap(double biggest1, double smallest1, double biggest2, double smallest2)
+int is_a_gap(double dot_p1, double dot_p2)
 {
+    double biggest1 = find_biggest(dot_p1);
+    double smallest1 = find_smallest(dot_p1);
+    double biggest2 = find_biggest(dot_p2);
+    double smallest2 = find_smallest(dot_p2);
+
     if ((smallest1 < biggest2 && smallest1 > smallest2) ||
         (smallest2 < biggest1 && smallest2 > smallest1))
         return (1);
@@ -53,23 +58,16 @@ int projection(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2)
 {
     double **proj_tab1 = malloc_map_int(4, 4);
     double **proj_tab2 = malloc_map_int(4, 4);
-    double biggest1;
-    double smallest1;
-    double biggest2;
-    double smallest2;
+
 
     for (int norm_i = 0; hitbox1->normals[norm_i] != NULL; norm_i++) {
-
         for (int vert_i = 0; hitbox1->vertices[vert_i] != NULL; vert_i++) {
-            proj_tab1[norm_i][vert_i] = dot_product(hitbox1->vertices[vert_i], hitbox1->normals[norm_i]);
-            proj_tab2[norm_i][vert_i] = dot_product(hitbox2->vertices[vert_i], hitbox1->normals[norm_i]);
+            proj_tab1[norm_i][vert_i] = dot_product(hitbox1->vertices[vert_i],
+                                                    hitbox1->normals[norm_i]);
+            proj_tab2[norm_i][vert_i] = dot_product(hitbox2->vertices[vert_i],
+                                                    hitbox1->normals[norm_i]);
         }
-        biggest1 = find_biggest(proj_tab1[norm_i]);
-        smallest1 = find_smallest(proj_tab1[norm_i]);
-        biggest2 = find_biggest(proj_tab2[norm_i]);
-        smallest2 = find_smallest(proj_tab2[norm_i]);
-        if (is_a_gap(biggest1, smallest1, biggest2, smallest2) == 0 ||
-            is_a_gap(biggest1, smallest1, biggest2, smallest2) == 0 )
+        if (is_a_gap(proj_tab1[norm_i], proj_tab2[norm_i]) == 0)
             return (0);
     }
     return (1);

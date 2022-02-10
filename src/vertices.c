@@ -30,7 +30,8 @@ coord_t **get_vertices_sq(coord_t center, int size)
     return (vertices_list);
 }
 
-coord_t **get_rot_vertices_sq(coord_t center, double rotation, coord_t **vertices_list)
+coord_t **get_rot_vertices_sq(coord_t center, double rotation,
+                                coord_t **vertices_list)
 {
     double rotated_x;
     double rotated_y;

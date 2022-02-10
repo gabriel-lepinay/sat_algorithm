@@ -4,10 +4,10 @@
 ** File description:
 ** header
 */
-#include <SFML/Graphics.h>
 
 #ifndef STRUCT_H_
     #define STRUCT_H_
+    #include <SFML/Graphics.h>
 
 typedef struct coord_s {
     double x;
