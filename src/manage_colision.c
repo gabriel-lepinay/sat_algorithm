@@ -15,12 +15,14 @@ int sat_algorithm(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2)
     if (projection(hitbox1, hitbox2) == 0 ||
         projection(hitbox2, hitbox1) == 0)
         return (0);
-    return (1);
+    else
+        return (1);
 }
 
 void manage_colision(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2)
 {
     if (sat_algorithm(hitbox1, hitbox2) == 1) {
+        printf("TOUCHE\n");
         sfRectangleShape_setOutlineColor(hitbox1->rectangle, sfGreen);
         sfRectangleShape_setOutlineColor(hitbox2->rectangle, sfGreen);
     } else {

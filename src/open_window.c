@@ -22,19 +22,19 @@ void event_handling(sfRenderWindow *window, hitbox_sq_t *hitbox)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (sfKeyboard_isKeyPressed(sfKeyUp)) {
-            hitbox->center.y -= 3;
+            hitbox->center.y -= 10;
             sfRectangleShape_setPosition(hitbox->rectangle, (sfVector2f){hitbox->center.x, hitbox->center.y});
         }
         if (sfKeyboard_isKeyPressed(sfKeyDown)) {
-            hitbox->center.y += 3;
+            hitbox->center.y += 10;
             sfRectangleShape_setPosition(hitbox->rectangle, (sfVector2f){hitbox->center.x, hitbox->center.y});
         }
         if (sfKeyboard_isKeyPressed(sfKeyLeft)) {
-            hitbox->center.x -= 3;
+            hitbox->center.x -= 10;
             sfRectangleShape_setPosition(hitbox->rectangle, (sfVector2f){hitbox->center.x, hitbox->center.y});
         }
         if (sfKeyboard_isKeyPressed(sfKeyRight)) {
-            hitbox->center.x += 3;
+            hitbox->center.x += 10;
             sfRectangleShape_setPosition(hitbox->rectangle, (sfVector2f){hitbox->center.x, hitbox->center.y});
         }
     }
@@ -53,6 +53,7 @@ void open_window(int width, int height)
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         event_handling(window, &moving_hitbox);
+        manage_colision(&static_hitbox, &moving_hitbox);
         sfRenderWindow_drawRectangleShape(window, moving_hitbox.rectangle, NULL);
         sfRenderWindow_drawRectangleShape(window, static_hitbox.rectangle, NULL);
         sfRenderWindow_display(window);
