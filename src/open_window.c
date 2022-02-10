@@ -48,12 +48,11 @@ void open_window(int width, int height)
 
     init_hitbox1(&moving_hitbox);
     init_hitbox2(&static_hitbox);
-
     create_window(&window, width, height);
+
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         event_handling(window, &moving_hitbox);
-        manage_colision(&static_hitbox, &moving_hitbox);
         sfRenderWindow_drawRectangleShape(window, moving_hitbox.rectangle, NULL);
         sfRenderWindow_drawRectangleShape(window, static_hitbox.rectangle, NULL);
         sfRenderWindow_display(window);

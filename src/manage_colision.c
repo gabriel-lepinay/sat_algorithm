@@ -5,29 +5,17 @@
 ** Source code to manage colision
 */
 #include "manage_colision.h"
-
-coord_t **get_vertices_sq(coord_t center, int size, float rotation)
-{
-    coord_t vertex1;
-    coord_t vertex2;
-    coord_t vertex3;
-    coord_t vertex4;
-    coord_t *vertices_tab[5];
-    double x = center.x * cos(rotation) - center.y * sin(rotation);
-    double y = center.x * sin(rotation) + center.y * cos(rotation);
-
-    vertices_tab[0] = {center.x + 1/2*size()};/
-    vertices_tab[1] = ;
-    vertices_tab[2] = ;
-    vertices_tab[3] = ;
-    vertices_tab[4] = NULL;
-    return (vertices_tab);
-}
+#include <unistd.h>
 
 int sat_algorithm(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2)
 {
-    hitbox1->vertices = get_vertices_sq(hitbox1->center, hitbox1->size, hitbox1->);
-    hitbox1->vertices = get_vertices_sq(hitbox2->center, hitbox2->size, hitbox2->);
+    load_vertices(hitbox1, hitbox2);
+    load_normals(hitbox1, hitbox2);
+
+    if (projection(hitbox1, hitbox2) == 0 ||
+        projection(hitbox2, hitbox1) == 0)
+        return (0);
+    return (1);
 }
 
 void manage_colision(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2)

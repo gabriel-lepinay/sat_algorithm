@@ -9,6 +9,10 @@ SRC = 	src/main.c				\
 		src/open_window.c		\
 		src/create_shape.c		\
 		src/manage_colision.c	\
+		src/normals.c			\
+		src/vertices.c			\
+		src/geo_ope.c			\
+		src/projection.c		\
 
 NAME = collision
 
@@ -16,7 +20,7 @@ OBJ = $(SRC:.c=.o)
 
 LDFLAGS = -lcsfml-graphics -lcsfml-window -lm
 
-CPPFLAGS = -I./include
+CPPFLAGS = -I./include -g3
 
 CFLAGS = -Wall -Wextra
 
