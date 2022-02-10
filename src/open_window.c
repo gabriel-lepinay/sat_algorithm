@@ -37,6 +37,10 @@ void event_handling(sfRenderWindow *window, hitbox_sq_t *hitbox)
             hitbox->center.x += 10;
             sfRectangleShape_setPosition(hitbox->rectangle, (sfVector2f){hitbox->center.x, hitbox->center.y});
         }
+        if (sfKeyboard_isKeyPressed(sfKeyR)) {
+            hitbox->rotation += 5;
+            sfRectangleShape_setRotation(hitbox->rectangle, hitbox->rotation);
+        }
     }
 }
 
