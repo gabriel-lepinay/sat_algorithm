@@ -4,7 +4,6 @@
 ** File description:
 ** Header
 */
-
 #ifndef COL_H_
     #define COL_H_
     #include "struct.h"

@@ -41,7 +41,7 @@ double find_smallest(double *list)
     return (smallest);
 }
 
-int is_a_gap(double dot_p1, double dot_p2)
+int is_a_gap(double *dot_p1, double *dot_p2)
 {
     double biggest1 = find_biggest(dot_p1);
     double smallest1 = find_smallest(dot_p1);

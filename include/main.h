@@ -4,7 +4,6 @@
 ** File description:
 ** header
 */
-
 #ifndef MAIN_H_
     #define MAIN_H_
     #include <SFML/Graphics.h>

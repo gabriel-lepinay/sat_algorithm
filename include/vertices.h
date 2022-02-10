@@ -4,7 +4,6 @@
 ** File description:
 ** header
 */
-
 #ifndef VER_H_
     #define VER_H_
     #include "struct.h"

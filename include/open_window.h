@@ -4,7 +4,6 @@
 ** File description:
 ** Header
 */
-
 #ifndef WIN_H_
     #define WIN_H_
     #include "struct.h"

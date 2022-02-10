@@ -4,7 +4,6 @@
 ** File description:
 ** Header
 */
-
 #ifndef SHA_H_
     #define SHA_H_
     #include "struct.h"

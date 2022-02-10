@@ -4,7 +4,6 @@
 ** File description:
 ** header
 */
-
 #ifndef NOR_H_
     #define NOR_H_
     #include "struct.h"

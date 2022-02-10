@@ -20,7 +20,7 @@ OBJ = $(SRC:.c=.o)
 
 LDFLAGS = -lcsfml-graphics -lcsfml-window -lm
 
-CPPFLAGS = -I./include -g3
+CPPFLAGS = -I./include
 
 CFLAGS = -Wall -Wextra
 

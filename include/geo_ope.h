@@ -4,7 +4,6 @@
 ** File description:
 ** header
 */
-
 #ifndef GEO_H_
     #define GEO_H_
     #include "struct.h"

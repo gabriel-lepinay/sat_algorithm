@@ -1,10 +1,9 @@
 /*
 ** EPITECH PROJECT, 2022
-** struct
+** header
 ** File description:
 ** header
 */
-
 #ifndef STRUCT_H_
     #define STRUCT_H_
     #include <SFML/Graphics.h>
