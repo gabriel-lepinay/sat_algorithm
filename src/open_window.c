@@ -6,6 +6,22 @@
 */
 #include "open_window.h"
 
+
+    /* double area1 = (vertices[3]->x * (vertices[0]->y - point.y) + */
+    /*                 vertices[0]->x * (point.y - vertices[0]->y) + */
+    /*                 point.x * (vertices[3]->y - vertices[0]->y)) / 2; */
+    /* double area2 = (point.x * (vertices[3]->y - vertices[2]->y) + */
+    /*                 vertices[3]->x * (vertices[2]->y - vertices[3]->y) + */
+    /*                 vertices[2]->x * (point.y - vertices[3]->y)) / 2; */
+    /* double area3 = (point.x * (vertices[2]->y - vertices[1]->y) + */
+    /*                 vertices[2]->x * (vertices[1]->y - vertices[2]->y) + */
+    /*                 vertices[1]->x * (point.y - vertices[2]->y)) / 2; */
+    /* double area4 = (vertices[1]->x * (point.y - vertices[0]->y) + */
+    /*                 point.x * (vertices[0]->y - point.y) + */
+    /*                 vertices[0]->x * (vertices[1]->y - point.y)) / 2; */
+    /* double rec_area = size * size; */
+    /* double total_area = area1 + area2 + area3 + area4; */
+
 void create_window(sfRenderWindow **window, int width, int height)
 {
     sfVideoMode mode = {width, height, 32};

@@ -25,7 +25,6 @@ void manage_colision(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2, hitbox_ci_t *ci
         sfRectangleShape_setOutlineColor(hitbox1->rectangle, sfGreen);
         sfRectangleShape_setOutlineColor(hitbox2->rectangle, sfGreen);
     } else if (point_in_rec(circle_hitbox->center, hitbox2->vertices, hitbox2->size) == 1) {
-        printf("Debug\n");
         sfRectangleShape_setOutlineColor(hitbox2->rectangle, sfRed);
         sfCircleShape_setOutlineColor(circle_hitbox->circle, sfRed);
     } else {
