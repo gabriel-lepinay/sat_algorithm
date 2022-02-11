@@ -10,8 +10,7 @@ void create_window(sfRenderWindow **window, int width, int height)
 {
     sfVideoMode mode = {width, height, 32};
 
-    *window = sfRenderWindow_create(mode, "SAT algorithm test",
-                                        sfDefaultStyle, NULL);
+    *window = sfRenderWindow_create(mode, "SAT algorithm test", sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(*window, 60);
 }
 
@@ -54,19 +53,20 @@ void open_window(int width, int height)
     sfRenderWindow *window;
     hitbox_sq_t static_hitbox;
     hitbox_sq_t moving_hitbox;
+    hitbox_ci_t circle_hitbox;
 
     init_hitbox1(&moving_hitbox);
     init_hitbox2(&static_hitbox);
+    init_hitbox_ci(&circle_hitbox);
     create_window(&window, width, height);
 
     while (sfRenderWindow_isOpen(window)) {
         sfRenderWindow_clear(window, sfBlack);
         event_handling(window, &moving_hitbox);
-        manage_colision(&static_hitbox, &moving_hitbox);
-        sfRenderWindow_drawRectangleShape(window, moving_hitbox.rectangle,
-                                            NULL);
-        sfRenderWindow_drawRectangleShape(window, static_hitbox.rectangle,
-                                            NULL);
+        manage_colision(&static_hitbox, &moving_hitbox, &circle_hitbox);
+        sfRenderWindow_drawRectangleShape(window, moving_hitbox.rectangle, NULL);
+        sfRenderWindow_drawRectangleShape(window, static_hitbox.rectangle, NULL);
+        sfRenderWindow_drawCircleShape(window, circle_hitbox.circle, NULL);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);

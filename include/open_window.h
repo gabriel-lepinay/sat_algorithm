@@ -11,5 +11,6 @@
 
 void init_hitbox1(hitbox_sq_t *hitbox);
 void init_hitbox2(hitbox_sq_t *hitbox);
-void manage_colision(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2);
+void init_hitbox_ci(hitbox_ci_t *hitbox);
+void manage_colision(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2, hitbox_ci_t *circle_hitbox);
 #endif /*WIN_H_*/

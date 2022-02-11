@@ -23,6 +23,30 @@ sfRectangleShape *create_square(int x, int y, int size, double rotation)
     return (rectangle);
 }
 
+sfCircleShape *create_circle(int x, int y, float radius)
+{
+    sfCircleShape *circle = sfCircleShape_create();
+    sfColor transparent = {0, 0, 0, 0};
+    sfVector2f position = {x, y};
+    sfVector2f origin = {radius, radius};
+
+    sfCircleShape_setPosition(circle, position);
+    sfCircleShape_setOrigin(circle, origin);
+    sfCircleShape_setFillColor(circle, transparent);
+    sfCircleShape_setRadius(circle, radius);
+    sfCircleShape_setOutlineThickness(circle, 1);
+    return (circle);
+}
+
+void init_hitbox_ci(hitbox_ci_t *hitbox)
+{
+    hitbox->center.x = 210;
+    hitbox->center.y = 210;
+    hitbox->radius = 50;
+    hitbox->circle = create_circle(hitbox->center.x, hitbox->center.y,
+                                   hitbox->radius);
+}
+
 void init_hitbox1(hitbox_sq_t *hitbox)
 {
     hitbox->center.x = 300;

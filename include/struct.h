@@ -30,4 +30,11 @@ typedef struct hitbox_sq_s {
 
 } hitbox_sq_t;
 
+typedef struct hitbox_ci_s {
+    coord_t center;
+    int radius;
+    sfCircleShape *circle;
+
+} hitbox_ci_t;
+
 #endif /*STRUCT_H_*/

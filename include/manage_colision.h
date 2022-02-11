@@ -14,4 +14,5 @@
 void load_normals(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2);
 void load_vertices(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2);
 int projection(hitbox_sq_t *hitbox1, hitbox_sq_t *hitbox2);
+int point_in_rec(coord_t point, coord_t **vertices, int size);
 #endif /*COL_H_*/

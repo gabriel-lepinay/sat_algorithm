@@ -13,6 +13,7 @@ SRC = 	src/main.c				\
 		src/vertices.c			\
 		src/geo_ope.c			\
 		src/projection.c		\
+		src/point_in_rec.c		\
 
 NAME = collision
 
