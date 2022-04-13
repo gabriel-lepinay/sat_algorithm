@@ -26,11 +26,10 @@ CPPFLAGS = -I./include
 
 CFLAGS = -Wall -Wextra
 
-all: built $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
-	rm -f src/*.o
 
 clean:
 	rm -f $(OBJ)
@@ -51,6 +50,3 @@ fclean: clean
 	rm -f unit_tests
 
 re: fclean all
-
-built:
-	rm -f *.o
