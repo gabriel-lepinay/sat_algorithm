@@ -49,20 +49,20 @@ void init_hitbox_ci(hitbox_ci_t *hitbox)
 
 void init_hitbox1(hitbox_sq_t *hitbox)
 {
-    hitbox->center.x = 300;
-    hitbox->center.y = 300;
+    hitbox->center.x = 600;
+    hitbox->center.y = 500;
     hitbox->size = 50;
-    hitbox->rotation = 60;
+    hitbox->rotation = 0;
     hitbox->rectangle = create_square(hitbox->center.x, hitbox->center.y,
                                         hitbox->size, hitbox->rotation);
 }
 
 void init_hitbox2(hitbox_sq_t *hitbox)
 {
-    hitbox->center.x = 760;
-    hitbox->center.y = 540;
+    hitbox->center.x = 950;
+    hitbox->center.y = 500;
     hitbox->size = 150;
-    hitbox->rotation = 0;
+    hitbox->rotation = 90;
     hitbox->rectangle = create_square(hitbox->center.x, hitbox->center.y,
                                         hitbox->size, hitbox->rotation);
 }

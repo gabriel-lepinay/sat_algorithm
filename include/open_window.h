@@ -9,6 +9,7 @@
     #include "struct.h"
     #include <SFML/Window.h>
 
+sfText *init_text(void);
 void init_hitbox1(hitbox_sq_t *hitbox);
 void init_hitbox2(hitbox_sq_t *hitbox);
 void init_hitbox_ci(hitbox_ci_t *hitbox);

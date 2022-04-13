@@ -6,7 +6,7 @@
 */
 #include "main.h"
 
-int main(int ac, char **av)
+int main(void)
 {
     open_window(1920, 1080);
     return (0);

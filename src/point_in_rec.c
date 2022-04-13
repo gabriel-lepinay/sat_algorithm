@@ -27,7 +27,6 @@ int point_in_rec(coord_t point, coord_t **vertices, int size)
     int rec_area = size * size;
     int total_area = area1 + area2 + area3 + area4;
 
-    printf("area: %i >= rec_area: %.i\n", total_area, rec_area);
     if (total_area > rec_area)
         return(0);
     return(1);

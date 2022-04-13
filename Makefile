@@ -14,8 +14,9 @@ SRC = 	src/main.c				\
 		src/geo_ope.c			\
 		src/projection.c		\
 		src/point_in_rec.c		\
+		src/init_text.c
 
-NAME = sat_algorithm
+NAME = collision
 
 OBJ = $(SRC:.c=.o)
 
@@ -25,17 +26,31 @@ CPPFLAGS = -I./include
 
 CFLAGS = -Wall -Wextra
 
-all: $(NAME)
+all: built $(NAME)
 
 $(NAME): $(OBJ)
 	gcc -o $(NAME) $(OBJ) $(CPPFLAGS) $(LDFLAGS) $(CFLAGS)
+	rm -f src/*.o
 
 clean:
 	rm -f $(OBJ)
+	rm -f *#
+	rm -f src/*#
+	rm -f include/*#
+	rm -f *~
+	rm -f include/*~
+	rm -f src/*~
+	rm -f tests/*~
+	rm -f lib/my/fonctions/*~
+	rm -f *.gcno
+	rm -f *.gcda
+	rm -f lib/my/libmy.a
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f unit_tests
 
 re: fclean all
 
-.PHONY: all clean fclean re
+built:
+	rm -f *.o

@@ -6,27 +6,11 @@
 */
 #include "open_window.h"
 
-
-    /* double area1 = (vertices[3]->x * (vertices[0]->y - point.y) + */
-    /*                 vertices[0]->x * (point.y - vertices[0]->y) + */
-    /*                 point.x * (vertices[3]->y - vertices[0]->y)) / 2; */
-    /* double area2 = (point.x * (vertices[3]->y - vertices[2]->y) + */
-    /*                 vertices[3]->x * (vertices[2]->y - vertices[3]->y) + */
-    /*                 vertices[2]->x * (point.y - vertices[3]->y)) / 2; */
-    /* double area3 = (point.x * (vertices[2]->y - vertices[1]->y) + */
-    /*                 vertices[2]->x * (vertices[1]->y - vertices[2]->y) + */
-    /*                 vertices[1]->x * (point.y - vertices[2]->y)) / 2; */
-    /* double area4 = (vertices[1]->x * (point.y - vertices[0]->y) + */
-    /*                 point.x * (vertices[0]->y - point.y) + */
-    /*                 vertices[0]->x * (vertices[1]->y - point.y)) / 2; */
-    /* double rec_area = size * size; */
-    /* double total_area = area1 + area2 + area3 + area4; */
-
 void create_window(sfRenderWindow **window, int width, int height)
 {
     sfVideoMode mode = {width, height, 32};
 
-    *window = sfRenderWindow_create(mode, "SAT algorithm test", sfDefaultStyle, NULL);
+    *window = sfRenderWindow_create(mode, "SAT algorithm", sfDefaultStyle, NULL);
     sfRenderWindow_setFramerateLimit(*window, 60);
 }
 
@@ -64,12 +48,30 @@ void event_handling(sfRenderWindow *window, hitbox_sq_t *hitbox)
     }
 }
 
+void my_display_vertices(sfRenderWindow *window, hitbox_sq_t hitbox)
+{
+    for (int index = 0; index < 4; index++) {
+        sfCircleShape *circle = sfCircleShape_create();
+        sfVector2f pos;
+
+        pos.x = hitbox.vertices[index]->x;
+        pos.y = hitbox.vertices[index]->y;
+
+        sfCircleShape_setPosition(circle, pos);
+        sfCircleShape_setRadius(circle, 3);
+        sfCircleShape_setFillColor(circle, sfRed);
+        sfCircleShape_setOutlineThickness(circle, 0);
+        sfRenderWindow_drawCircleShape(window, circle, sfFalse);       
+    }
+}
+
 void open_window(int width, int height)
 {
     sfRenderWindow *window;
     hitbox_sq_t static_hitbox;
     hitbox_sq_t moving_hitbox;
     hitbox_ci_t circle_hitbox;
+    sfText *text = init_text();
 
     init_hitbox1(&moving_hitbox);
     init_hitbox2(&static_hitbox);
@@ -82,7 +84,9 @@ void open_window(int width, int height)
         manage_colision(&static_hitbox, &moving_hitbox, &circle_hitbox);
         sfRenderWindow_drawRectangleShape(window, moving_hitbox.rectangle, NULL);
         sfRenderWindow_drawRectangleShape(window, static_hitbox.rectangle, NULL);
-        sfRenderWindow_drawCircleShape(window, circle_hitbox.circle, NULL);
+        // sfRenderWindow_drawCircleShape(window, circle_hitbox.circle, NULL);
+        sfRenderWindow_drawText(window, text, NULL);
+        // my_display_vertices(window, moving_hitbox);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
