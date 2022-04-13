@@ -11,7 +11,7 @@ sfText *init_text(void)
 {
     sfText *text = sfText_create();
     sfVector2f pos = {10, 10};
-    sfFont *font = sfFont_createFromFile("src/DeterminationMonoWebRegular-Z5oq.ttf");
+    sfFont *font = sfFont_createFromFile("asset/font/DeterminationMonoWebRegular-Z5oq.ttf");
 
     sfText_setString(text, "Movements:\nright: <right arrow>\nleft: <left arrow>\nup: <up arrow>\ndown: <down arrow>\nrotate: <r>");
     sfText_setFont(text, font);

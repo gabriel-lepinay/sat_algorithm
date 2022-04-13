@@ -5,18 +5,18 @@
 ## Makefile code source
 ##
 
-SRC = 	src/main.c				\
-		src/open_window.c		\
-		src/create_shape.c		\
-		src/manage_colision.c	\
-		src/normals.c			\
-		src/vertices.c			\
-		src/geo_ope.c			\
-		src/projection.c		\
-		src/point_in_rec.c		\
+SRC = 	src/main.c								\
+		src/open_window.c						\
+		src/create_shape.c						\
+		src/manage_colision.c					\
+		src/normals.c							\
+		src/vertices.c							\
+		src/geometrical_operations.c			\
+		src/projection.c						\
+		src/point_in_rec.c						\
 		src/init_text.c
 
-NAME = collision
+NAME = sat_algorithm
 
 OBJ = $(SRC:.c=.o)
 

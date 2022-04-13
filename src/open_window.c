@@ -84,9 +84,7 @@ void open_window(int width, int height)
         manage_colision(&static_hitbox, &moving_hitbox, &circle_hitbox);
         sfRenderWindow_drawRectangleShape(window, moving_hitbox.rectangle, NULL);
         sfRenderWindow_drawRectangleShape(window, static_hitbox.rectangle, NULL);
-        // sfRenderWindow_drawCircleShape(window, circle_hitbox.circle, NULL);
         sfRenderWindow_drawText(window, text, NULL);
-        // my_display_vertices(window, moving_hitbox);
         sfRenderWindow_display(window);
     }
     sfRenderWindow_destroy(window);
