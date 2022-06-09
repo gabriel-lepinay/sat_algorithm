@@ -4,7 +4,7 @@
 
 The Separated Axis Theorem, is a collision detection algorithm between rotated polygons.
 
-This programme demonstrates how this algorithm works with two squares that you can moove and rotate.
+This programme demonstrates how this algorithm works with two squares that you can move and rotate.
 
 ## How to use it
 ### Prerequies:
